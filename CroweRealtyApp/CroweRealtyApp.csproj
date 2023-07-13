@@ -49,6 +49,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\about_icon.svg" />
+	  <None Remove="Resources\Images\back_icon.svg" />
+	  <None Remove="Resources\Images\bookmark_empty_icon.svg" />
+	  <None Remove="Resources\Images\bookmark_fill_icon.svg" />
+	  <None Remove="Resources\Images\bookmark_icon.svg" />
+	  <None Remove="Resources\Images\faq_icon.svg" />
+	  <None Remove="Resources\Images\home_icon.svg" />
+	  <None Remove="Resources\Images\house02.jpg" />
+	  <None Remove="Resources\Images\left_arrow_icon.svg" />
+	  <None Remove="Resources\Images\location_icon.svg" />
+	  <None Remove="Resources\Images\logout_icon.svg" />
+	  <None Remove="Resources\Images\message_icon.svg" />
+	  <None Remove="Resources\Images\phone_icon.svg" />
+	  <None Remove="Resources\Images\privacy_icon.svg" />
+	  <None Remove="Resources\Images\search_icon.svg" />
+	  <None Remove="Resources\Images\settings_icon.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 

@@ -23,7 +23,7 @@ namespace CroweRealtyApp.Services
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(register);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/Account/Register", content);
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Account/Register", content);
             if(response.IsSuccessStatusCode) return true;
             return false;
         }
@@ -35,7 +35,19 @@ namespace CroweRealtyApp.Services
                 Email = email,
                 Password = password
             };
-
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(login);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Account/Login", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResult = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<Token>(jsonResult);
+                Preferences.Set("accessToken", result.AccessToken);
+                Preferences.Set("userId", result.UserId);
+                Preferences.Set("userName", result.UserName);
+                return true;
+            }  return false;
         }
     }
 }

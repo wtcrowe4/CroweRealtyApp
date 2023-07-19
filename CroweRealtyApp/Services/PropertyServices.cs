@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CroweRealtyApp.Services
 {
-    public class PropertyServices
+    public static class PropertyServices
     {
         public static async Task<List<Category>> GetCategories()
         {

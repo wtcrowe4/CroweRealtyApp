@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CroweRealtyApp.Pages.RegisterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="RegisterPage">
+    <VerticalStackLayout>
+
+        <Image
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Source="dotnet_bot"
+            WidthRequest="100" />
+
+        <Label
+            FontSize="Title"
+            HorizontalOptions="Center"
+            Text="Register"
+            TextColor="{Color Gray900}" />
+
+        <Label
+            FontSize="Body"
+            HorizontalOptions="Center"
+            Text="Please enter your information below to create a new account."
+            TextColor="{Color Gray600}" />
+
+        <Entry x:Name="FullNameEntry" Placeholder="Full Name" />
+        <Entry x:Name="EntEmail" Placeholder="Email" />
+        <Entry x:Name="PhoneEntry" Placeholder="Phone" />
+        <Entry
+            x:Name="PasswordEntry"
+            IsPassword="True"
+            Placeholder="Password" />
+        <Button
+            x:Name="RegisterButton"
+            BackgroundColor="#1d94ab"
+            Clicked="RegisterButton_Clicked"
+            FontSize="Medium"
+            HeightRequest="50"
+            Text="Register" />
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+
+            <Label
+                FontSize="Medium"
+                Text="Already have an account? "
+                TextColor="#101010" />
+            <Label
+                FontSize="Medium"
+                Text="Sign In"
+                TextColor="#1d94ab" />
+
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="LoginTap" Tapped="LoginTapped" />
+            </HorizontalStackLayout.GestureRecognizers>
+
+        </HorizontalStackLayout>
+
+
+    </VerticalStackLayout>
+</ContentPage>

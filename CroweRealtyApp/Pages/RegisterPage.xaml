@@ -25,7 +25,7 @@
             TextColor="{Color Gray600}" />
 
         <Entry x:Name="FullNameEntry" Placeholder="Full Name" />
-        <Entry x:Name="EntEmail" Placeholder="Email" />
+        <Entry x:Name="EmailEntry" Placeholder="Email" />
         <Entry x:Name="PhoneEntry" Placeholder="Phone" />
         <Entry
             x:Name="PasswordEntry"

@@ -1,5 +1,4 @@
-﻿using Android.Net;
-using CroweRealtyApp.Services;
+﻿using CroweRealtyApp.Services;
 using CroweRealtyApp.Models;
 
 namespace CroweRealtyApp.Pages

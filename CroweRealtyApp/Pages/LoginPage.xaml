@@ -6,15 +6,54 @@
     xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
     xmlns:local="clr-namespace:CroweRealtyApp.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="LoginPage"
     mc:Ignorable="d">
-    <ContentPage.Content>
-        <StackLayout Margin="12" Spacing="12">
-            <Entry x:Name="EmailEntry" Placeholder="Email" />
-            <Entry
-                x:Name="PasswordEntry"
-                IsPassword="True"
-                Placeholder="Password" />
-            <Button Command="{Binding LoginButton_Clicked}" Text="Log In" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <VerticalStackLayout
+        Margin="20,0,20,0"
+        Spacing="20"
+        VerticalOptions="Center">
+        <Image
+            HeightRequest="80"
+            HorizontalOptions="Center"
+            Source="dotnet_bot"
+            WidthRequest="80" />
+        <Label
+            FontSize="Large"
+            HorizontalOptions="Center"
+            Text="Welcome Back!"
+            TextColor="#101010" />
+        <Label
+            FontSize="Small"
+            HorizontalOptions="Center"
+            Text="Please enter your email below to start using the app."
+            TextColor="LightSlateGrey" />
+        <Entry x:Name="EmailEntry" Placeholder="Email" />
+        <Entry
+            x:Name="PasswordEntry"
+            IsPassword="True"
+            Placeholder="Password" />
+        <Button
+            x:Name="LoginButton"
+            BackgroundColor="#1d94ab"
+            Clicked="LoginButton_Clicked"
+            FontSize="Medium"
+            HeightRequest="50"
+            Text="Sign In" />
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label
+                FontSize="Medium"
+                Text="Not a member? "
+                TextColor="#101010" />
+            <Label
+                FontSize="Medium"
+                Text="Register here"
+                TextColor="#1d94ab" />
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="Register" Tapped="Register_Tapped" />
+
+            </HorizontalStackLayout.GestureRecognizers>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
 </ContentPage>

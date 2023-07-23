@@ -10,7 +10,7 @@ namespace CroweRealtyApp.Pages
             InitializeComponent();
         }
 
-        async void LoginButton_Clicked(System.Object sender, System.EventArgs e)
+        async void LoginButton_Clicked(Object sender, EventArgs e)
         {
             var response = await UserServices.LoginUser(EmailEntry.Text, PasswordEntry.Text) ;
             if (response)
@@ -23,7 +23,7 @@ namespace CroweRealtyApp.Pages
             }
         }
 
-        async void Register_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
+        async void Register_Tapped(Object sender, TappedEventArgs e)
         {
             await Navigation.PushModalAsync(new RegisterPage());
         }

@@ -15,7 +15,7 @@ namespace CroweRealtyApp.Pages
             var response = await UserServices.LoginUser(EmailEntry.Text, PasswordEntry.Text) ;
             if (response)
             {
-                Application.Current.MainPage = new CustomTabbedPage();
+                Application.Current.MainPage = new TabPage();
             }
             else
             {

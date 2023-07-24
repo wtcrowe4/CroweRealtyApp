@@ -1,6 +1,6 @@
 ﻿namespace CroweRealtyApp.Pages
 {
-    public partial class TabPage : ContentPage
+    public partial class TabPage : TabbedPage
     {
         public TabPage()
         {

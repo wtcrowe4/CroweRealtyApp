@@ -25,7 +25,7 @@ namespace CroweRealtyApp.Pages
 
         async void Register_Tapped(Object sender, TappedEventArgs e)
         {
-            await Navigation.PushModalAsync(new RegisterPage());
+            await Navigation.PushAsync(new RegisterPage());
         }
     }
 }

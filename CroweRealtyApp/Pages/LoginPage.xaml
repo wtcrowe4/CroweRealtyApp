@@ -14,31 +14,36 @@
         Spacing="20"
         VerticalOptions="Center">
         <Image
-            HeightRequest="80"
+            HeightRequest="200"
             HorizontalOptions="Center"
             Source="dotnet_bot"
-            WidthRequest="80" />
+            WidthRequest="200" />
         <Label
-            FontSize="Large"
+            FontSize="50"
             HorizontalOptions="Center"
             Text="Welcome Back!"
             TextColor="#101010" />
         <Label
-            FontSize="Small"
+            FontSize="15"
             HorizontalOptions="Center"
             Text="Please enter your email below to start using the app."
             TextColor="LightSlateGrey" />
-        <Entry x:Name="EmailEntry" Placeholder="Email" />
+        <Entry
+            x:Name="EmailEntry"
+            Margin="5"
+            Placeholder="Email" />
         <Entry
             x:Name="PasswordEntry"
+            Margin="5"
             IsPassword="True"
             Placeholder="Password" />
         <Button
             x:Name="LoginButton"
-            BackgroundColor="#1d94ab"
+            Margin="10,40"
+            BackgroundColor="{StaticResource Primary}"
             Clicked="LoginButton_Clicked"
-            FontSize="Medium"
-            HeightRequest="50"
+            FontSize="25"
+            HeightRequest="60"
             Text="Sign In" />
 
         <HorizontalStackLayout HorizontalOptions="Center">
@@ -49,7 +54,7 @@
             <Label
                 FontSize="Medium"
                 Text="Register here"
-                TextColor="#1d94ab" />
+                TextColor="{StaticResource Primary}" />
             <HorizontalStackLayout.GestureRecognizers>
                 <TapGestureRecognizer x:Name="Register" Tapped="Register_Tapped" />
 

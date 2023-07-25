@@ -4,39 +4,51 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Register">
-    <VerticalStackLayout>
+    <VerticalStackLayout Margin="40,60">
 
         <Image
-            HeightRequest="100"
+            HeightRequest="200"
             HorizontalOptions="Center"
             Source="dotnet_bot"
-            WidthRequest="100" />
+            WidthRequest="200" />
 
         <Label
-            FontSize="Title"
+            FontSize="50"
             HorizontalOptions="Center"
-            Text="Register"
-            TextColor="{Color Gray900}" />
+            Text="Welcome"
+            TextColor="Black" />
 
         <Label
-            FontSize="Body"
+            Margin="5"
+            FontSize="20"
             HorizontalOptions="Center"
             Text="Please enter your information below to create a new account."
-            TextColor="{Color Gray600}" />
+            TextColor="Black" />
 
-        <Entry x:Name="FullNameEntry" Placeholder="Full Name" />
-        <Entry x:Name="EmailEntry" Placeholder="Email" />
-        <Entry x:Name="PhoneEntry" Placeholder="Phone" />
+        <Entry
+            x:Name="FullNameEntry"
+            Margin="5"
+            Placeholder="Full Name" />
+        <Entry
+            x:Name="EmailEntry"
+            Margin="5"
+            Placeholder="Email" />
+        <Entry
+            x:Name="PhoneEntry"
+            Margin="5"
+            Placeholder="Phone" />
         <Entry
             x:Name="PasswordEntry"
+            Margin="5"
             IsPassword="True"
             Placeholder="Password" />
         <Button
             x:Name="RegisterButton"
-            BackgroundColor="#1d94ab"
+            Margin="10,30"
+            BackgroundColor="{StaticResource Primary}"
             Clicked="RegisterButton_Clicked"
-            FontSize="Medium"
-            HeightRequest="50"
+            FontSize="25"
+            HeightRequest="60"
             Text="Register" />
 
         <HorizontalStackLayout HorizontalOptions="Center">
@@ -48,7 +60,7 @@
             <Label
                 FontSize="Medium"
                 Text="Sign In"
-                TextColor="#1d94ab" />
+                TextColor="{StaticResource Primary}" />
 
             <HorizontalStackLayout.GestureRecognizers>
                 <TapGestureRecognizer x:Name="LoginTap" Tapped="LoginTapped" />

@@ -8,7 +8,6 @@ namespace CroweRealtyApp.Pages
         public HomePage()
         {
             InitializeComponent();
-            InitializeComponent();
             LblUserName.Text = "Hi " + Preferences.Get("username", string.Empty);
             GetCategories();
             GetTrendingProperties();

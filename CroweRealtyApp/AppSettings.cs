@@ -8,6 +8,9 @@ namespace CroweRealtyApp
 {
     public static class AppSettings
     {
-        public static string ApiUrl = "https://localhost:7022/api/";
+        public static string ApiUrl = "dev tunnel";
+        //public static string ApiUrl = "http://localhost:5022/api/";
+        
     }
+
 }

@@ -8,11 +8,119 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <Grid>
-            <Label
-                HorizontalOptions="Center"
-                Text="Home Page"
-                VerticalOptions="Center" />
-        </Grid>
+        <ScrollView>
+
+            <Grid Margin="20" RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <VerticalStackLayout Grid.Row="0" Spacing="5">
+                    <Label x:Name="LblUserName" FontSize="Large" />
+                    <Label FontSize="Medium" Text="Find your best place to stay" />
+                </VerticalStackLayout>
+
+                <Frame Grid.Row="1" Padding="15">
+                    <HorizontalStackLayout Spacing="20">
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="25"
+                            Source="search_icon"
+                            WidthRequest="25" />
+                        <Label Text="Search..." VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapSearch" Tapped="TapSearch_Tapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <VerticalStackLayout Grid.Row="2" Spacing="20">
+                    <Label FontSize="Large" Text="Categories" />
+                    <CollectionView
+                        x:Name="CvCategories"
+                        HeightRequest="50"
+                        SelectionChanged="CvCategories_SelectionChanged"
+                        SelectionMode="Single">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame>
+                                    <HorizontalStackLayout Spacing="5">
+                                        <Image
+                                            Aspect="AspectFit"
+                                            HeightRequest="30"
+                                            Source="{Binding FullImageUrl}"
+                                            WidthRequest="30" />
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="{Binding Name}"
+                                            VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="3" Spacing="20">
+                    <Label FontSize="Large" Text="Top Picks" />
+                    <CollectionView
+                        x:Name="CvTopPicks"
+                        HeightRequest="350"
+                        SelectionChanged="CvTopPicks_SelectionChanged"
+                        SelectionMode="Single">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    Padding="15"
+                                    BackgroundColor="White"
+                                    CornerRadius="25">
+                                    <Grid RowSpacing="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Grid.Row="0"
+                                            Padding="0"
+                                            CornerRadius="25"
+                                            HeightRequest="200"
+                                            IsClippedToBounds="True"
+                                            WidthRequest="250">
+                                            <Image Aspect="Fill" Source="{Binding FullImageUrl}" />
+                                        </Frame>
+                                        <Label
+                                            Grid.Row="1"
+                                            FontSize="Subtitle"
+                                            Text="{Binding Name}" />
+                                        <Label
+                                            Grid.Row="2"
+                                            FontSize="Small"
+                                            LineBreakMode="TailTruncation"
+                                            Text="{Binding Address}"
+                                            WidthRequest="250" />
+                                        <Label
+                                            Grid.Row="3"
+                                            FontSize="Subtitle"
+                                            Text="{Binding Price}"
+                                            TextColor="#1d94ab" />
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

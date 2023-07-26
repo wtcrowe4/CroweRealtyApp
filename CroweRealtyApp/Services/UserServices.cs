@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using CroweRealtyApp.Models;
@@ -23,7 +25,7 @@ namespace CroweRealtyApp.Services
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(register);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Account/Register", content);
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Users/Register", content);
             if(response.IsSuccessStatusCode) return true;
             return false;
         }
@@ -34,11 +36,14 @@ namespace CroweRealtyApp.Services
             {
                 Email = email,
                 Password = password
+
             };
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(login);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Account/Login", content);
+            Debug.WriteLine(json);
+           
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Users/Login", content);
             if (response.IsSuccessStatusCode)
             {
                 var jsonResult = await response.Content.ReadAsStringAsync();
@@ -47,7 +52,12 @@ namespace CroweRealtyApp.Services
                 Preferences.Set("userId", result.UserId);
                 Preferences.Set("userName", result.UserName);
                 return true;
-            }  return false;
+            }
+            else
+            {
+                Debug.WriteLine(response);
+                return false;
+            }
         }
     }
 }

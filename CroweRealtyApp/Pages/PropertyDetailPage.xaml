@@ -4,16 +4,116 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:CroweRealtyApp.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="PropertyDetailPage"
     mc:Ignorable="d">
-    <ContentPage.Content>
-        <Grid>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image
+            x:Name="ImgProperty"
+            Grid.Row="0"
+            Grid.RowSpan="3"
+            Aspect="Fill"
+            HeightRequest="280"
+            VerticalOptions="Start" />
+        <StackLayout
+            Grid.Row="1"
+            Margin="20,0,20,0"
+            Orientation="Horizontal">
+            <ImageButton
+                x:Name="ImgbackBtn"
+                Padding="5"
+                BackgroundColor="White"
+                Clicked="ImgbackBtn_Clicked"
+                CornerRadius="10"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Source="back_icon"
+                VerticalOptions="Start"
+                WidthRequest="40" />
+
+            <ImageButton
+                x:Name="ImgbookmarkBtn"
+                Padding="5"
+                BackgroundColor="White"
+                Clicked="ImgbookmarkBtn_Clicked"
+                CornerRadius="10"
+                HeightRequest="40"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="Start"
+                WidthRequest="40" />
+        </StackLayout>
+        <VerticalStackLayout Grid.Row="3" Margin="20">
+            <Label x:Name="LblPrice" FontSize="Subtitle" />
+            <HorizontalStackLayout Spacing="5">
+                <Image HeightRequest="20" Source="location_icon" />
+                <Label x:Name="LblAddress" FontSize="Medium" />
+            </HorizontalStackLayout>
             <Label
-                HorizontalOptions="Center"
-                Text="Welcome to .NET MAUI!!!"
-                TextColor="Purple"
-                VerticalOptions="Center"/>
-        </Grid>
-    </ContentPage.Content>
+                Margin="0,20,0,10"
+                FontSize="Title"
+                Text="Description" />
+            <Label x:Name="LblDescription" FontSize="Medium" />
+        </VerticalStackLayout>
+        <HorizontalStackLayout
+            Grid.Row="4"
+            HorizontalOptions="Center"
+            Spacing="30"
+            VerticalOptions="EndAndExpand">
+            <Frame
+                BackgroundColor="#1d94ab"
+                CornerRadius="35"
+                HeightRequest="70"
+                WidthRequest="150">
+                <HorizontalStackLayout Spacing="10">
+                    <Image
+                        HeightRequest="25"
+                        Source="message_icon"
+                        VerticalOptions="Center"
+                        WidthRequest="25" />
+                    <Label
+                        FontSize="Medium"
+                        Text="Message"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapMessage" Tapped="TapMessage_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame
+                BackgroundColor="#1d94ab"
+                CornerRadius="35"
+                HeightRequest="70"
+                WidthRequest="150">
+                <HorizontalStackLayout Spacing="20">
+                    <Image
+                        HeightRequest="25"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="phone_icon"
+                        VerticalOptions="Center"
+                        WidthRequest="25" />
+                    <Label
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Call"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapCall" Tapped="TapCall_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>

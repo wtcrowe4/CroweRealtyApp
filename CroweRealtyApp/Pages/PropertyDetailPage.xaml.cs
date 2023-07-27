@@ -1,4 +1,7 @@
-﻿namespace CroweRealtyApp.Pages
+﻿using CroweRealtyApp.Models;
+using CroweRealtyApp.Services;
+
+namespace CroweRealtyApp.Pages
 {
     public partial class PropertyDetailPage : ContentPage
     {
@@ -15,11 +18,11 @@
 
         private async void GetPropertyDetail(int propertyId)
         {
-            var property = await ApiService.GetPropertyDetail(propertyId);
+            var property = await PropertyServices.GetPropertyDetail(propertyId);
             LblPrice.Text = "$ " + property.Price;
             LblDescription.Text = property.Detail;
             LblAddress.Text = property.Address;
-            ImgProperty.Source = property.FullImageUrl;
+            ImgProperty.Source = property.ImageUrl;
             phoneNumber = property.Phone;
 
             if (property.Bookmark == null)
@@ -59,10 +62,10 @@
                 // Add a bookmark
                 var addBookmark = new AddBookmark()
                 {
-                    User_Id = Preferences.Get("userid", 0),
+                    UserId = Preferences.Get("userid", 0),
                     PropertyId = propertyId
                 };
-                var response = await ApiService.AddBookmark(addBookmark);
+                var response = await BookmarkServices.AddBookmark(addBookmark);
                 if (response)
                 {
                     ImgbookmarkBtn.Source = "bookmark_fill_icon";
@@ -72,7 +75,7 @@
             else
             {
                 // Delete a bookmark
-                var response = await ApiService.DeleteBookmark(bookmarkId);
+                var response = await BookmarkServices.DeleteBookmark(bookmarkId);
                 if (response)
                 {
                     ImgbookmarkBtn.Source = "bookmark_empty_icon";

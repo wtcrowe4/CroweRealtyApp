@@ -8,11 +8,60 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <Grid>
+        <VerticalStackLayout Margin="20">
             <Label
+                FontSize="Large"
                 HorizontalOptions="Center"
-                Text="Settings"
-                VerticalOptions="Center" />
-        </Grid>
+                Text="Settings" />
+            <VerticalStackLayout Margin="0,40,0,40" Spacing="20">
+                <HorizontalStackLayout Spacing="20">
+                    <Image
+                        HeightRequest="30"
+                        Source="about_icon"
+                        WidthRequest="30" />
+                    <Label
+                        FontSize="Medium"
+                        Text="About"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="20">
+                    <Image
+                        HeightRequest="30"
+                        Source="privacy_icon"
+                        WidthRequest="30" />
+                    <Label
+                        FontSize="Medium"
+                        Text="Privacy &amp; Security"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="20">
+                    <Image
+                        HeightRequest="30"
+                        Source="faq_icon"
+                        WidthRequest="30" />
+                    <Label
+                        FontSize="Medium"
+                        Text="Help and Support"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="20">
+                    <Image
+                        HeightRequest="30"
+                        Source="logout_icon"
+                        WidthRequest="30" />
+                    <Label
+                        FontSize="Medium"
+                        Text="Logout"
+                        VerticalOptions="Center" />
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapLogout" Tapped="TapLogout_Tapped" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

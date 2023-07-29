@@ -23,7 +23,6 @@ namespace CroweRealtyApp.Pages
             else
             {
                 await DisplayAlert("", "Oops something went wrong.", "Cancel");
-                Debug.WriteLine(response);
             }
         }
 

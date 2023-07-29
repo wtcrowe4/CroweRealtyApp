@@ -41,8 +41,10 @@ namespace CroweRealtyApp.Services
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(login);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
+            Debug.WriteLine(content);
             Debug.WriteLine(json);
-           
+            //dev tunnel authorization
+            httpClient.DefaultRequestHeaders.Add("X-Tunnel-Authorziation", AppSettings.tunnelHeader);
             var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Users/Login", content);
             if (response.IsSuccessStatusCode)
             {

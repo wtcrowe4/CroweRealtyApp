@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CroweRealtyApp.Models;
 using Newtonsoft.Json;
 
+
 namespace CroweRealtyApp.Services
 {
     public static class UserServices
@@ -44,7 +45,11 @@ namespace CroweRealtyApp.Services
             Debug.WriteLine(content);
             Debug.WriteLine(json);
             //dev tunnel authorization
-            httpClient.DefaultRequestHeaders.Add("X-Tunnel-Authorziation", AppSettings.tunnelHeader);
+            //httpClient.DefaultRequestHeaders.Add("X-Tunnel-Authorziation", AppSettings.tunnelHeader);
+            
+            //httpClient.DefaultRequestHeaders.Add("WWW-Authenticate", "tunnel");
+            //httpClient.DefaultRequestHeaders.Add("Cookie", $".Tunnels.Relay.WebForwarding.Cookies={AppSettings.TunnelCookie}");
+
             var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Users/Login", content);
             if (response.IsSuccessStatusCode)
             {

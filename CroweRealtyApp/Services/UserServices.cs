@@ -45,10 +45,11 @@ namespace CroweRealtyApp.Services
             Debug.WriteLine(content);
             Debug.WriteLine(json);
             //dev tunnel authorization
-            //httpClient.DefaultRequestHeaders.Add("X-Tunnel-Authorziation", AppSettings.tunnelHeader);
-            
-            //httpClient.DefaultRequestHeaders.Add("WWW-Authenticate", "tunnel");
-            //httpClient.DefaultRequestHeaders.Add("Cookie", $".Tunnels.Relay.WebForwarding.Cookies={AppSettings.TunnelCookie}");
+            httpClient.DefaultRequestHeaders.Add("WWW-Authenticate", "tunnel");
+            httpClient.DefaultRequestHeaders.Add("Cookie", $".Tunnels.Relay.WebForwarding.Cookies={AppSettings.TunnelCookie}");
+            httpClient.DefaultRequestHeaders.Add("X-Tunnel-Authorziation", AppSettings.tunnelHeader);
+            Debug.WriteLine(httpClient.DefaultRequestHeaders);
+            Debug.WriteLine(httpClient.ToString());
 
             var response = await httpClient.PostAsync(AppSettings.ApiUrl + "Users/Login", content);
             if (response.IsSuccessStatusCode)
@@ -58,10 +59,12 @@ namespace CroweRealtyApp.Services
                 Preferences.Set("accessToken", result.AccessToken);
                 Preferences.Set("userId", result.UserId);
                 Preferences.Set("userName", result.UserName);
+                Debug.WriteLine(result);
                 return true;
             }
             else
             {
+
                 Debug.WriteLine(response);
                 return false;
             }
